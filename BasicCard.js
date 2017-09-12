@@ -11,10 +11,10 @@ BasicCard.prototype.printInfo = function () {
 
 inquirer.prompt ([
     {
-        front: "front" ,
+        name: "front" ,
         message: "Enter text for the front of the card."
     }, {
-        back: "back",
+        name: "back",
         message: "Enter text for the back of the card."
     }
 ]).then(function(answers) {

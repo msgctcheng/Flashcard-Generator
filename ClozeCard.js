@@ -11,10 +11,10 @@ function ClozeCard (part, cloze, full, err) {
 
 inquirer.prompt ([
     {
-        partText: "part" ,
+        name: "part" ,
         message: "Enter the partial text for Cloze Card."
     }, {
-        cloze: "cloze",
+        name: "cloze",
         message: "Enter text that is omitted."
     }
 ]).then(function(ans) {
