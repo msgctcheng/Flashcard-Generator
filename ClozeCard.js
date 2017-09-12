@@ -1,12 +1,12 @@
 var inquirer = require("inquirer");
 
-function ClozeCard (text, cloze, err) {
+function ClozeCard (part, cloze, full, err) {
    if (err) {
        console.log (err);
    } else
-    this.fullText =cloze + part;
     this.partText = " ..." + part;
     this.cloze = cloze;
+    this.fullText = cloze +" "+ part;
 }
 
 inquirer.prompt ([
@@ -18,12 +18,16 @@ inquirer.prompt ([
         message: "Enter text that is omitted."
     }
 ]).then(function(ans) {
-    var newCloze = new ClozeCard(ans.cloze, ans.part, ans.cloze);
-    newBasic.printInfo();
-})
+    var full = ans.cloze + " " + ans.part;
+    var newCloze = new ClozeCard(ans.part, ans.cloze, full);
+    newCloze.print ();
+});
 
-ClozeCard.prototype.create = function () {
+ClozeCard.prototype.print = function() {
+console.log("Full Text: " + this.fullText);
+console.log("Partial Text: " + this.partText);
+console.log("Clozed/Omitted Text: " + this.cloze)
 
 }
 
-ClozeCard.prototype.printInfo
+module.exports = ClozeCard; 

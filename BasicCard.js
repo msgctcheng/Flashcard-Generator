@@ -9,9 +9,6 @@ BasicCard.prototype.printInfo = function () {
     console.log("Front: " + this.front + "\nBack: " +  this.back);
 }
 
-
-module.exports = BasicCard;
-
 inquirer.prompt ([
     {
         front: "front" ,
@@ -24,3 +21,4 @@ inquirer.prompt ([
     var newBasic = new BasicCard(answers.front, answers.back);
     newBasic.printInfo();
 })
+module.exports = BasicCard;
